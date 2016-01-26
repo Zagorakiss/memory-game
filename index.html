@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Find the match - memory game</title>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="css/normalize.css">
+
+    
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <div class="app" ng-app="app" ng-controller="appController" ng-cloak>
+
+  <div class="app__hud">
+
+    <div class="app__hud__game-info" ng-hide="gameCompleted">Find the match</div>
+    <div class="app__hud__game-completed" ng-show="gameCompleted">
+      Congratulations!
+    </div>
+    <div class="app__hud__game-status">clicks: {{clickCount}}, cards: {{cardsLeft}}</div>
+    <button ng-click="restart()" class="app__hud__btn-restart">Restart</button>
+  </div>
+
+  <div class="app__cards-container">
+
+    <div class="app__cards-container__card" role="button" ng-repeat="card in list" id="{{ 'card-' + card.id }}">
+
+      <div class="front app__cards-container__card__front" ng-click="click(card, $index)"> {{card.isKnown ? "" : "?"}}</div>
+      <div class="back app__cards-container__card__back">
+        <span ng-class="card.theme">{{card.icon}}</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+<script src='http://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-animate.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-touch.min.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
